@@ -1,35 +1,37 @@
 // Name any p5.js functions we use in `global` so Glitch can recognize them.
 /* global
- *   background, createCanvas, ellipse, noFill, stroke, strokeWeight 
+ *   background, createCanvas, ellipse, noFill, stroke, strokeWeight,
+ *   loadImage, image
  */
 
-// Content behind double slashes is a comment. Use it for plain English notes,
-// or for code that you want to temporarily disable.
+let dvdImage, x, y, masterVelocity, xVelocity, yVelocity;
 
 function setup(){
-  // Code here runs only once
   createCanvas(800, 600);
+  // We only want to load the logo once.
+  dvdImage = loadImage("https://cdn.glitch.com/eaea72a4-ac6d-4777-b76e-f37d75959aa5%2Fdvd.jpeg?1515761833387");
+  masterVelocity = 3;
+  x = 50;
+  xVelocity = masterVelocity;
+  y = 50;
+  yVelocity = masterVelocity;
 }
 
 function draw(){
-  // Code here runs continuously
   background(220);
-
-  noFill();
-  strokeWeight(5);
-
-  stroke(10, 160, 255);
-  ellipse(50, 50, 50, 50);
-
-  stroke(0, 0, 0);
-  ellipse(110, 50, 50, 50);
-
-  stroke(255, 0, 0);
-  ellipse(170, 50, 50, 50);
-
-  stroke(240, 210, 0);
-  ellipse(80, 80, 50, 50);
-
-  stroke(0, 180, 0);
-  ellipse(140, 80, 50, 50);
+  // Draw the logo at the new position.
+  if (x > 600) {
+    xVelocity = -masterVelocity;
+  } else if (x < 0) {
+    xVelocity = masterVelocity;
+  }
+  x += xVelocity;
+  
+  if (y > 450) {
+    yVelocity = -masterVelocity;
+  } else if (y < 0) {
+    yVelocity = masterVelocity;
+  }
+  y += yVelocity;
+  image(dvdImage, x, y, 200, 150);
 }
