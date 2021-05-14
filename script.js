@@ -32,11 +32,20 @@ function setup() {
 
 function draw() {
   background(backgroundColor);
-  // Call the drawCenterLine function here to run the three lines of code
-  // contained in that function.
-
   drawCenterLine();
 
+  if (mouseX > width / 2) {
+    backgroundColor = color(20);
+    color1 = color(200, globalS, globalB);
+    color2 = color(0, globalS, globalB);
+    textColor = color(95);
+  } else {
+    backgroundColor = color(95);
+    color1 = color(0, globalS, globalB);
+    color2 = color(200, globalS, globalB);
+    textColor = color(20);
+  }
+  
   // The red and blue circles:
   fill(color1);
   ellipse(width / 4, height / 2, 50);
