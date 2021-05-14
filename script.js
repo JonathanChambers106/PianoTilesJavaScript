@@ -1,37 +1,59 @@
 // Name any p5.js functions we use in `global` so Glitch can recognize them.
 /* global
  *   background, createCanvas, ellipse, noFill, stroke, strokeWeight,
- *   loadImage, image
+ *   loadImage, image, width, height, colorMode, noStroke, HSB, color,
+ *   fill, ellipse, text, line, mouseX, mouseY
  */
 
-let dvdImage, x, y, masterVelocity, xVelocity, yVelocity;
 
-function setup(){
-  createCanvas(800, 600);
-  // We only want to load the logo once.
-  dvdImage = loadImage("https://cdn.glitch.com/eaea72a4-ac6d-4777-b76e-f37d75959aa5%2Fdvd.jpeg?1515761833387");
-  masterVelocity = 3;
-  x = 50;
-  xVelocity = masterVelocity;
-  y = 50;
-  yVelocity = masterVelocity;
+// We'll use variables for most of our colors in this code-along.
+let backgroundColor, color1, color2, textColor, globalS, globalB;
+
+function setup() {
+  // Canvas & color settings
+  createCanvas(600, 500);
+  colorMode(HSB, 360, 100, 100);
+  noStroke();
+
+  // When used with only one argument, the color mode is greyscale.
+  // 0 is black and 100 is white.
+  backgroundColor = color(95);
+  textColor = color(20);
+  // When used with three arguments, the function takes, in this order:
+  // HUE - 0 to 360 degrees on a color wheel - 0 is red, 120 is green and 240
+  //       is blue.
+  // SATURATION - 0 is no color (greyscale), and 100 is as bold as possible.
+  // BRIGHTNESS - 0 is no light (black), and 100 is as bright as possible.
+  globalS = 100;
+  globalB = 80;
+  color1 = color(0, globalS, globalB);
+  color2 = color(200, globalS, globalB);
 }
 
-function draw(){
-  background(220);
-  // Draw the logo at the new position.
-  if (x > 600) {
-    xVelocity = -masterVelocity;
-  } else if (x < 0) {
-    xVelocity = masterVelocity;
-  }
-  x += xVelocity;
-  
-  if (y > 450) {
-    yVelocity = -masterVelocity;
-  } else if (y < 0) {
-    yVelocity = masterVelocity;
-  }
-  y += yVelocity;
-  image(dvdImage, x, y, 200, 150);
+function draw() {
+  background(backgroundColor);
+  // Call the drawCenterLine function here to run the three lines of code
+  // contained in that function.
+
+  drawCenterLine();
+
+  // The red and blue circles:
+  fill(color1);
+  ellipse(width / 4, height / 2, 50);
+  fill(color2);
+  ellipse(width * 0.75, height / 2, 50);
+
+  // The grey circle and the text:
+  fill(textColor);
+  ellipse(mouseX, mouseY, 50);
+  text("Flip the switch", 20, 20);
+}
+
+function drawCenterLine() {
+  // This function will turn stroke on, draw the line, and then turn stroke
+  // back off.
+  // Remember a line segment in p5.js has four arguments: x1, y1, x2, y2
+  stroke(textColor);
+  line(width / 2, 0, width / 2, height);
+  noStroke();
 }
