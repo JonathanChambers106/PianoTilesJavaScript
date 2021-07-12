@@ -14,27 +14,16 @@ function setup(){
 function draw(){
   // Code here runs continuously
   background(300)
+ 
+  circle(30, 30, 20);
 
   
-  stroke(color(0, 0, 255));
-  strokeWeight(10);
-  ellipse(150, 130, 200, 200)
-
-  stroke('#222222');
-  strokeWeight(10);
-  ellipse(400, 130, 200, 200)
-
-  stroke('red');
-  strokeWeight(10);
-  ellipse(650, 130, 200, 200)
   
-  stroke('rgb(0,255,0)');
-  strokeWeight(10);
-  ellipse(525, 230, 200, 200)
   
-  stroke(255, 204, 0);
-  strokeWeight(10);
-  ellipse(275, 230, 200, 200)
   
-  noFill()
+  
+  
+  
+  
+  
 }
