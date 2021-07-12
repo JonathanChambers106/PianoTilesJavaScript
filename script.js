@@ -10,12 +10,14 @@ function setup(){
   // Code here runs only once
   createCanvas(800, 600)
 }
-
+ // blue, yellow, black, green and red on a white background
 function draw(){
   // Code here runs continuously
   background(220)
   
-  ellipse(170, 200, 300, 300)
-  rect(100, 400, 150)
-  
+  ellipse(150, 240, 200, 200)
+  ellipse(450, 250, 200, 200)
+  ellipse(150, 300, 200, 200)
+  ellipse(150, 100, 200, 200)
+  ellipse(150, 200, 200, 200)
 }
