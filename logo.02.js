@@ -15,7 +15,7 @@ function draw(){
   // Code here runs continuously
   background(300)
  
-  circle(30, 30, 20);
+  circle(150, 150, 200);
 
   
   

@@ -13,7 +13,7 @@ function setup(){
  // blue, yellow, black, green and red on a white background
 function draw(){
   // Code here runs continuously
-  background(300)
+  background(230)
 
   
   stroke(color(0, 0, 255));
