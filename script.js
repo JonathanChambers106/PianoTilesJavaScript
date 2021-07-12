@@ -14,10 +14,16 @@ function setup(){
 function draw(){
   // Code here runs continuously
   background(220)
-  
-  ellipse(150, 240, 200, 200)
-  ellipse(450, 250, 200, 200)
-  ellipse(150, 300, 200, 200)
+  //      hrz, vrtc, h,  w
   ellipse(150, 100, 200, 200)
-  ellipse(150, 200, 200, 200)
+  
+  ellipse(400, 100, 200, 200)
+  
+  ellipse(650, 100, 200, 200)
+  
+  ellipse(130, 335, 200, 200)
+  
+  ellipse(250, 150, 200, 200)
+  
+  noFill()
 }
