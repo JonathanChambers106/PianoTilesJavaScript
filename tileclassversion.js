@@ -9,10 +9,10 @@ function setup() {
   createCanvas(401, 601);
   colorMode(HSB, 360, 100, 100);
   rectiles = [
-    new Tile(20, 80, 60, 1),
-    new Tile(90, 30, 200, 1),
-    new Tile(90, 300,300, 1),
-    new Tile(20, 60, 100, 1)
+    new Tile(20, 300, 60, 1),
+    new Tile(90, 300, 200, 1),
+    new Tile(90, 300, 300, 1),
+    new Tile(20, 300, 100, 1)
   ];
 }
 
@@ -31,7 +31,7 @@ class Tile {
   constructor(width, height, y, velocity) {
     this.width = width;
     this.height = height;
-    this.x = random(100, 400);
+    this.x = random(10, 400);
     this.y = y;
     this.velocity = velocity;
   }
