@@ -7,11 +7,17 @@ let rectiles;
 
 function setup() {
   createCanvas(401, 601);
-  rectiles = [new Tile(20, 80, 30, 60, 1), new Tile(40, 60, 50, 30, 1), new Tile (80, 100, this.x, this.y, 1)];
+  colorMode(HSB, 360, 100, 100);
+  rectiles = [
+    new Tile(20, 80, 60, 1),
+    new Tile(90, 30, 200, 1),
+    new Tile(90, 300,300, 1),
+    new Tile(20, 60, 100, 1)
+  ];
 }
 
 function draw() {
-  background(51);
+  background(255);
   for (
     let drawrectangle = 0;
     drawrectangle < rectiles.length;
@@ -22,15 +28,15 @@ function draw() {
 }
 
 class Tile {
-  constructor(width, height, x, y, velocity) {
+  constructor(width, height, y, velocity) {
     this.width = width;
     this.height = height;
-    this.x = random(100,200);
-    this.y = random(100,200);
+    this.x = random(100, 400);
+    this.y = y;
     this.velocity = velocity;
   }
   drawrectangle() {
-    fill(255, 204, 0);
+    fill(0, 0, 0);
     rect(this.x, this.y, this.width, this.height);
   }
 }
