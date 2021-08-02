@@ -15,6 +15,7 @@ function setup() {
     new Tile(90, 200, 300, 350, 1),
     new Tile(90, 200, 150, 450, 1),
   ];
+  
 }
 
 function draw() {
@@ -25,6 +26,8 @@ function draw() {
     drawrectangle++
   ) {
     rectiles[drawrectangle].drawrectangle();
+    rectiles[drawrectangle].move();
+
   }
 }
 
@@ -37,16 +40,20 @@ function mousePressed(){
 }
 
 
+
+
 class Tile {
   constructor(width, height, x, y, velocity) {
     this.width = width;
     this.height = height;
     this.x = x;
     this.y = y;
-    this.velocity = 1;
+    this.velocity = velocity;
   }
   
-  this.move = 
+   move(){
+    this.y += this.velocity;
+    }
   
   
   
