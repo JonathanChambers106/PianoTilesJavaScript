@@ -27,6 +27,10 @@ function draw() {
   }
 }
 
+
+function addScore(){}
+
+
 class Tile {
   constructor(width, height, y, velocity) {
     this.width = width;
