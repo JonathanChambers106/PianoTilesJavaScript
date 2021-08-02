@@ -5,43 +5,32 @@
 
 let rectiles;
 
-
 function setup() {
   createCanvas(401, 601);
-  rectiles = [
-  new Tile(20, 80, 30, 60, 1)  
-  ]
+  rectiles = [new Tile(20, 80, 30, 60, 1), new Tile(40, 60, 50, 30, 1), new Tile (80, 100, this.x, this.y, 1)];
 }
 
 function draw() {
   background(51);
-  for (let drawrectangle = 0; drawrectangle < rectiles.length; drawrectangle++){
-    rectiles[drawrectangle]
+  for (
+    let drawrectangle = 0;
+    drawrectangle < rectiles.length;
+    drawrectangle++
+  ) {
+    rectiles[drawrectangle].drawrectangle();
   }
-
 }
 
 class Tile {
-    constructor(width, height, x, y, velocity) {
-      this.width = 100;
-      this.height = 150;
-      this.x = x;
-      this.y = this.height;
-      this.velocity = 1;
-    }
-    drawrectangle() {
+  constructor(width, height, x, y, velocity) {
+    this.width = width;
+    this.height = height;
+    this.x = random(100,200);
+    this.y = random(100,200);
+    this.velocity = velocity;
+  }
+  drawrectangle() {
     fill(255, 204, 0);
     rect(this.x, this.y, this.width, this.height);
-  };
-  
-  
-  
-  
-  
   }
-
-
-
-
-
-
+}
