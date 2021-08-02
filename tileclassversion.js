@@ -25,9 +25,9 @@ function draw() {
     drawrectangle < rectiles.length;
     drawrectangle++
   ) {
-    rectiles[drawrectangle].drawrectangle();
-    rectiles[drawrectangle].move();
-
+   rectiles[drawrectangle].drawrectangle();
+  rectiles[drawrectangle].move(Tile);
+ //reset the tiles once they are below the canvas
   }
 }
 
