@@ -3,38 +3,27 @@
  *  createCanvas, color, colorMode, strokeWeight, stroke, fill, HSB, noFill, WIDTH, HEIGHT, background, ellipse, rect, time, i, noLoop, textSize, text, width, height, tiles, newRow, random, mouseY, mouseX
  */
 
-let WIDTH = 100;
-let HEIGHT = 150;
-
-let time;
-let score;
-let tiles = [];
-
 function setup() {
   createCanvas(401, 601);
-
-  time = 0;
-  for (let i = 0; i < 4; i++) newRow();
 }
 
 function draw() {
   background(51);
-  for (let i = 0; i < tiles.length; i++) {
-    // tiles[i].show();
-    // tiles[i].move();
-    let x = (i % 4) * WIDTH;
-    let y = (3 - Math.floor(i / 4)) * HEIGHT;
 
-    fill(tiles[i] === 0 ? 0 : 255);
-    //noStroke();
-    rect(x, y, WIDTH, HEIGHT);
+  class tile {
+    constructor(WIDTH, HEIGHT, x, y, velocity) {
+      this.WIDTH = 100;
+      this.HEIGHT = 150;
+      this.x = x;
+      this.y = this.HEIGHT;
+      this.velocity = 1;
+    }
   }
-}
 
-function mousePressed() {}
-
-function newRow() {
-  let t = Math.floor(random(4));
-
-  for (let i = 0; i < 4; i++) tiles.unshift(t === i ? 0 : 1);
+  this.draw = function(rectangle) {
+    noStroke()
+    fill(255, 204, 0);
+    rect(this.x, this.y, this.WIDTH, this.HEIGHT);
+    
+  };
 }

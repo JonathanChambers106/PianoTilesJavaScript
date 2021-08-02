@@ -17,6 +17,8 @@ function setup() {
   for (let i = 0; i < 4; i++) newRow();
 }
 
+
+// Draws the tiles 
 function draw() {
   background(51);
   for (let i = 0; i < tiles.length; i++) {
@@ -31,10 +33,16 @@ function draw() {
   }
 }
 
+
+// Allows the user to click on the on the squares
 function mousePressed() {}
 
+
+
+// Creates new floors for the tiles as the tiles fall 
 function newRow() {
   let t = Math.floor(random(4));
 
   for (let i = 0; i < 4; i++) tiles.unshift(t === i ? 0 : 1);
 }
+
