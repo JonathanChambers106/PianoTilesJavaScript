@@ -6,18 +6,19 @@
 let rectiles;
 
 function setup() {
-  createCanvas(401, 601);
+  createCanvas(400, 700);
   colorMode(HSB, 360, 100, 100);
   rectiles = [
-    new Tile(20, 300, 60, 1),
-    new Tile(90, 300, 200, 1),
-    new Tile(90, 300, 300, 1),
-    new Tile(20, 300, 100, 1)
+    //to do: change x's value to random position
+    new Tile(90, 300, 50, 50, 1),
+    new Tile(90, 300, 250, 10, 1),
+    new Tile(90, 200, 300, 350, 1),
+    new Tile(90, 200, 150, 450, 1),
   ];
 }
 
 function draw() {
-  background(255);
+  background(70);
   for (
     let drawrectangle = 0;
     drawrectangle < rectiles.length;
@@ -31,14 +32,24 @@ function draw() {
 function addScore(){}
 
 
+function mousePressed(){
+  
+}
+
+
 class Tile {
-  constructor(width, height, y, velocity) {
+  constructor(width, height, x, y, velocity) {
     this.width = width;
     this.height = height;
-    this.x = random(10, 400);
+    this.x = x;
     this.y = y;
-    this.velocity = velocity;
+    this.velocity = 1;
   }
+  
+  this.move = 
+  
+  
+  
   drawrectangle() {
     fill(0, 0, 0);
     rect(this.x, this.y, this.width, this.height);
