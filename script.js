@@ -28,7 +28,7 @@ function draw(){
   for (let i = 0; i < tiles.length; i++){
  
     let x = (i % 4) * WIDTH;
-    let y = ((3 -Math.floor(i / 4)) * HEIGHT);
+    let y = ((3 - Math.floor(i / 4)) * HEIGHT);
     
     
     
