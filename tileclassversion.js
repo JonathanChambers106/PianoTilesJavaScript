@@ -29,7 +29,6 @@ function draw() {
     rectiles[drawrectangle].drawrectangle();
     rectiles[drawrectangle].move(Tile);
   }
-     hit = collideRectRect(90, 300, 100, 150, mouseX, mouseY, 50, 75);
 }
 
 function addScore() {}
@@ -39,8 +38,6 @@ function mousePressed() {
     rectiles.x = mouseX;
     rectiles.y = mouseY;
     console.log("rectiles")
-    
-    if ( == rectiles.length)
     
   }
 }
@@ -70,6 +67,10 @@ class Tile {
     if (this.y > height) {
       this.y = 0;
     }
+  }
+  
+  hit(){
+    
   }
 
   drawrectangle() {
