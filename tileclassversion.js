@@ -1,7 +1,7 @@
 // Name any p5.js functions we use in `global` so Glitch can recognize them.
 /* global
- *  createCanvas, color, hit, textAlign, CENTER, collidePointRect, colorMode, strokeWeight, 
- * stroke, fill, HSB, noFill, WIDTH, HEIGHT, background, ellipse, rect, time, i, noLoop, 
+ *  createCanvas, color, hit, textAlign, CENTER, collidePointRect, colorMode, strokeWeight,
+ * stroke, fill, HSB, noFill, WIDTH, HEIGHT, background, ellipse, rect, time, i, noLoop,
  * textSize, text, width, height, tiles, newRow, random, mouseY, mouseX, loop, createButton
  */
 
@@ -17,9 +17,9 @@ function setup() {
      *make tiles smaller
      */
     new Tile(90, 150, 50, -300, 2),
-    new Tile(90, 150, 250, -200, 2),
-    new Tile(90, 100, 300, -150, 2),
-    new Tile(90, 100, 150, 0, 2)
+    new Tile(90, 150, 250, 200, 2)
+   // new Tile(90, 100, 300, -150, 2),
+ //   new Tile(90, 100, 150, 0, 2)
   ];
 
   textAlign(CENTER);
@@ -27,7 +27,6 @@ function setup() {
   button.position(13, 35);
   button.mousePressed(resetGame);
 }
-
 
 function draw() {
   background(70);
@@ -105,12 +104,12 @@ class Tile {
 function resetGame() {
   score = 0;
   rectiles[
-  new Tile(90, 300, 50, 50, 1),
-  new Tile(90, 300, 250, 10, 1),
-  new Tile(90, 200, 300, 350, 1),
-  new Tile(90, 200, 150, 450, 1)
-  ]
-//  noLoop();
+    (new Tile(90, 300, 50, 50, 1),
+    new Tile(90, 300, 250, 10, 1),
+    new Tile(90, 200, 300, 350, 1),
+    new Tile(90, 200, 150, 450, 1))
+  ];
+  //  noLoop();
 }
 
 //end screen fuction
