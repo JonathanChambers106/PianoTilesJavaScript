@@ -23,26 +23,21 @@ function setup() {
 
   textAlign(CENTER);
   button = createButton("Reset Game");
-  button.position(10, 20);
+  button.position(13, 35);
   button.mousePressed(resetGame);
 }
 
 function draw() {
   background(70);
-  for (
-    let drawrectangle = 0;
-    drawrectangle < rectiles.length;
-    drawrectangle++
-  ) {
-    rectiles[drawrectangle].drawrectangle();
-    rectiles[drawrectangle].move(Tile);
-  }
+  displayScore();
+  rectanglefordraw();
 }
 
 function displayScore() {
   //Display Score
-  fill('#222222');
-  text("Score:", 200, 500);
+  fill('51');
+  textSize(15);
+  text(`Score: ${score}`, 35, 20);
 }
 
 function mousePressed() {
@@ -73,6 +68,17 @@ function gameOver() {
   text("GAME OVER", width / 2, height / 2);
   textSize(12);
   text("Press Reset Button to Restart", width / 4, height / 4);
+}
+
+function rectanglefordraw() {
+  for (
+    let drawrectangle = 0;
+    drawrectangle < rectiles.length;
+    drawrectangle++
+  ) {
+    rectiles[drawrectangle].drawrectangle();
+    rectiles[drawrectangle].move(Tile);
+  }
 }
 
 //tiles
