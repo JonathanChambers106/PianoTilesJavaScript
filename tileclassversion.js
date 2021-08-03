@@ -10,6 +10,7 @@ let rectiles, button, score;
 function setup() {
   createCanvas(400, 700);
   colorMode(HSB, 360, 100, 100);
+
   score = 0;
   rectiles = [
     /*to do: change x's value to random position
@@ -27,6 +28,7 @@ function setup() {
   button.mousePressed(resetGame);
 }
 
+
 function draw() {
   background(70);
   displayScore();
@@ -35,7 +37,7 @@ function draw() {
 
 function displayScore() {
   //Display Score
-  fill('51');
+  fill("51");
   textSize(15);
   text(`Score: ${score}`, 35, 20);
 }
@@ -58,16 +60,6 @@ function mousePressed() {
       console.log("tile", tile);
     }
   }
-}
-
-//end screen fuction
-function gameOver() {
-  noLoop();
-  fill(255, 204, 100);
-  textSize(48);
-  text("GAME OVER", width / 2, height / 2);
-  textSize(12);
-  text("Press Reset Button to Restart", width / 4, height / 4);
 }
 
 function rectanglefordraw() {
@@ -109,10 +101,22 @@ class Tile {
     rect(this.x, this.y, this.width, this.height);
   }
 }
-
+// reset button
 function resetGame() {
-  if (gameOver) {
-    score = 0;
-    loop();
-  }
+  score = 0;
+  new Tile(90, 300, 50, 50, 1),
+  new Tile(90, 300, 250, 10, 1),
+  new Tile(90, 200, 300, 350, 1),
+  new Tile(90, 200, 150, 450, 1);
+  noLoop();
+}
+
+//end screen fuction
+function gameOver() {
+  noLoop();
+  fill(255, 204, 100);
+  textSize(48);
+  text("GAME OVER", width / 2, height / 2);
+  textSize(12);
+  text("Press 'Reset Game' Button to Restart", width / 4, height / 4);
 }
