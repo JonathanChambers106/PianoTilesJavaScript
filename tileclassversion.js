@@ -1,6 +1,6 @@
 // Name any p5.js functions we use in `global` so Glitch can recognize them.
 /* global
- *  createCanvas, color, colorMode, strokeWeight, stroke, fill, HSB, noFill, WIDTH, HEIGHT, background, ellipse, rect, time, i, noLoop, textSize, text, width, height, tiles, newRow, random, mouseY, mouseX
+ *  createCanvas, color, hit, textAlign, CENTER, collidePointRect, colorMode, strokeWeight, stroke, fill, HSB, noFill, WIDTH, HEIGHT, background, ellipse, rect, time, i, noLoop, textSize, text, width, height, tiles, newRow, random, mouseY, mouseX
  */
 
 let rectiles;
@@ -17,6 +17,9 @@ function setup() {
     new Tile(90, 200, 300, 350, 1),
     new Tile(90, 200, 150, 450, 1)
   ];
+  
+  textAlign(CENTER)
+
 }
 
 function draw() {
@@ -35,9 +38,16 @@ function addScore() {}
 
 function mousePressed() {
   for (let i = 0; i < rectiles.length; i++) {
-    rectiles.x = mouseX;
-    rectiles.y = mouseY;
-    console.log("rectiles")
+    let tile = rectiles[i];
+/*    rectiles.x = mouseX;
+    rectiles.y = mouseY; */
+    console.log("rectiles");
+    hit = collidePointRect(mouseX, mouseY, tile.x, tile.y, tile.w, tile.h);
+
+    if (hit) {
+      tile.hit();
+      console.log("tile", tile);
+    } 
     
   }
 }
@@ -61,16 +71,17 @@ class Tile {
     this.y = y;
     this.velocity = velocity;
   }
-//tile movement
+
+  //tile movement
   move() {
     this.y += this.velocity;
     if (this.y > height) {
       this.y = 0;
     }
   }
-  
-  hit(){
-    
+
+  hit() {
+    this.y = 0;
   }
 
   drawrectangle() {
