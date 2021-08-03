@@ -9,7 +9,9 @@ function setup() {
   createCanvas(400, 700);
   colorMode(HSB, 360, 100, 100);
   rectiles = [
-    //to do: change x's value to random position
+    /*to do: change x's value to random position
+    *
+    */
     new Tile(90, 300, 50, 50, 1),
     new Tile(90, 300, 250, 10, 1),
     new Tile(90, 200, 300, 350, 1),
@@ -27,7 +29,6 @@ function draw() {
   ) {
    rectiles[drawrectangle].drawrectangle();
    rectiles[drawrectangle].move(Tile);
- //reset the tiles once they are below the canvas
   }
 }
 
@@ -36,12 +37,20 @@ function addScore(){}
 
 
 function mousePressed(){
-  
+  for (let i = 0; i < rectiles.length; i++){
+    
+  }
 }
 
-//yunus 
+
+//yunus, end screen fuction
 function gameOver(){
-  
+  noLoop();
+  fill(255, 204, 100);
+  textSize(48);
+  text('GAME OVER', width / 2, height / 2);
+  textSize(12);
+  text('Press Reset Button to Restart', width / 4, height / 4);
 }
 
 
