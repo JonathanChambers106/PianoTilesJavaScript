@@ -2,14 +2,15 @@
 /* global
  *  createCanvas, color, hit, textAlign, CENTER, collidePointRect, colorMode, strokeWeight, 
  stroke, fill, HSB, noFill, WIDTH, HEIGHT, background, ellipse, rect, time, i, noLoop, 
- textSize, text, width, height, tiles, newRow, random, mouseY, mouseX, loop, score, createButton
+ textSize, text, width, height, tiles, newRow, random, mouseY, mouseX, loop, createButton
  */
 
-let rectiles, button;
+let rectiles, button, score;
 
 function setup() {
   createCanvas(400, 700);
   colorMode(HSB, 360, 100, 100);
+  score = 0;
   rectiles = [
     /*to do: change x's value to random position
      *make tiles smaller
@@ -22,7 +23,7 @@ function setup() {
 
   textAlign(CENTER);
   button = createButton("Reset Game");
-  button.position(4, 2);
+  button.position(10, 20);
   button.mousePressed(resetGame);
 }
 
@@ -40,15 +41,13 @@ function draw() {
 
 function displayScore() {
   //Display Score
-  fill(0);
-  text("Score: ${Score}", 10, 38);
+  fill('#222222');
+  text("Score:", 200, 500);
 }
 
 function mousePressed() {
   for (let i = 0; i < rectiles.length; i++) {
     let tile = rectiles[i];
-    /*    rectiles.x = mouseX;
-    rectiles.y = mouseY; */
     console.log("rectiles");
     hit = collidePointRect(
       mouseX,
@@ -90,12 +89,13 @@ class Tile {
   move() {
     this.y += this.velocity;
     if (this.y > height) {
-      this.y = 0;
+      this.y = -this.height;
     }
   }
 
   hit() {
-    this.y = 0;
+    this.y = -this.height;
+    score++;
   }
 
   drawrectangle() {
