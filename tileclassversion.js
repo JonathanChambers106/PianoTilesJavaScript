@@ -26,7 +26,7 @@ function draw() {
     drawrectangle++
   ) {
    rectiles[drawrectangle].drawrectangle();
-  rectiles[drawrectangle].move(Tile);
+   rectiles[drawrectangle].move(Tile);
  //reset the tiles once they are below the canvas
   }
 }
@@ -36,6 +36,11 @@ function addScore(){}
 
 
 function mousePressed(){
+  
+}
+
+//yunus 
+function gameOver(){
   
 }
 
@@ -53,6 +58,9 @@ class Tile {
   
    move(){
     this.y += this.velocity;
+    if (this.y > height){
+      this.y = 0;
+    } 
     }
   
   
