@@ -34,7 +34,11 @@ function draw() {
   }
 }
 
-function addScore() {}
+function displayScore() {
+  //Display Score
+  fill(0);
+  text('Score: ${Score}', 10, 38);
+}
 
 function mousePressed() {
   for (let i = 0; i < rectiles.length; i++) {
@@ -42,12 +46,12 @@ function mousePressed() {
 /*    rectiles.x = mouseX;
     rectiles.y = mouseY; */
     console.log("rectiles");
-    hit = collidePointRect(mouseX, mouseY, tile.x, tile.y, tile.w, tile.h);
+    hit = collidePointRect(mouseX, mouseY, tile.x, tile.y, tile.width, tile.height);
 
     if (hit) {
       tile.hit();
       console.log("tile", tile);
-    } 
+    }
     
   }
 }
