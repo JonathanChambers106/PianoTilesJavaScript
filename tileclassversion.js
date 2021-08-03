@@ -1,9 +1,11 @@
 // Name any p5.js functions we use in `global` so Glitch can recognize them.
 /* global
- *  createCanvas, color, hit, textAlign, CENTER, collidePointRect, colorMode, strokeWeight, stroke, fill, HSB, noFill, WIDTH, HEIGHT, background, ellipse, rect, time, i, noLoop, textSize, text, width, height, tiles, newRow, random, mouseY, mouseX
+ *  createCanvas, color, hit, textAlign, CENTER, collidePointRect, colorMode, strokeWeight, 
+ stroke, fill, HSB, noFill, WIDTH, HEIGHT, background, ellipse, rect, time, i, noLoop, 
+ textSize, text, width, height, tiles, newRow, random, mouseY, mouseX, loop, score, createButton
  */
 
-let rectiles;
+let rectiles, button;
 
 function setup() {
   createCanvas(400, 700);
@@ -17,9 +19,11 @@ function setup() {
     new Tile(90, 200, 300, 350, 1),
     new Tile(90, 200, 150, 450, 1)
   ];
-  
-  textAlign(CENTER)
 
+  textAlign(CENTER);
+  button = createButton("Reset Game");
+  button.position(4, 2);
+  button.mousePressed(resetGame);
 }
 
 function draw() {
@@ -37,22 +41,28 @@ function draw() {
 function displayScore() {
   //Display Score
   fill(0);
-  text('Score: ${Score}', 10, 38);
+  text("Score: ${Score}", 10, 38);
 }
 
 function mousePressed() {
   for (let i = 0; i < rectiles.length; i++) {
     let tile = rectiles[i];
-/*    rectiles.x = mouseX;
+    /*    rectiles.x = mouseX;
     rectiles.y = mouseY; */
     console.log("rectiles");
-    hit = collidePointRect(mouseX, mouseY, tile.x, tile.y, tile.width, tile.height);
+    hit = collidePointRect(
+      mouseX,
+      mouseY,
+      tile.x,
+      tile.y,
+      tile.width,
+      tile.height
+    );
 
     if (hit) {
       tile.hit();
       console.log("tile", tile);
     }
-    
   }
 }
 
@@ -91,5 +101,12 @@ class Tile {
   drawrectangle() {
     fill(0, 0, 0);
     rect(this.x, this.y, this.width, this.height);
+  }
+}
+
+function resetGame() {
+  if (gameOver) {
+    score = 0;
+    loop();
   }
 }
