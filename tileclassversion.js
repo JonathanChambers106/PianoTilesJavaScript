@@ -58,19 +58,11 @@ function mousePressed() {
       tile.hit();
       console.log("tile", tile);
     }
-    else if(below){
-      gameOver();
-    }
-    
   }
 }
 
 function rectanglecontrol() {
-  for (
-    let drawrectangle = 0;
-    drawrectangle < rectiles.length;
-    drawrectangle++
-  ) {
+  for (let drawrectangle = 0; drawrectangle < rectiles.length; drawrectangle++) {
     rectiles[drawrectangle].drawrectangle();
     rectiles[drawrectangle].move(Tile);
   }
@@ -94,13 +86,17 @@ class Tile {
     }
   }
 
+  belowcanvas() {
+    if (this.y > height) {
+      gameOver();
+    }
+    
+    
+  }
+
   hit() {
     this.y = -this.height;
     score++;
-  }
-  
-  belowcanvas(){
-    this.y > height;
   }
 
   drawrectangle() {
