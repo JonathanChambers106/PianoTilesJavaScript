@@ -33,7 +33,7 @@ function setup() {
 }
 
 function loaded(){
-  //song.play();
+  song.play();
 }
 
 function draw() {
