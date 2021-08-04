@@ -16,8 +16,8 @@ function setup() {
     /*to do: change x's value to random position
      *make tiles smaller
      */
-    new Tile(90, 150, 50, -300, 4),
-    new Tile(90, 150, 250, 200, 2)
+    new Tile(90, 150, 50, -300, 1),
+    new Tile(90, 150, 250, 200, 1)
     // new Tile(90, 100, 300, -150, 2),
     //   new Tile(90, 100, 150, 0, 2)
   ];
@@ -37,13 +37,13 @@ function draw() {
 function displayScore() {
   //Display Score
   fill(50, 100, 100);
-  
+  textAlign(LEFT);
   textSize(15);
-  text(`Score: ${score}`, 35, 550);
-  if (score % 12 == 0){
-    text(`Congrats you've reached Level: ${score /12 + 1}`,35, 600)
+  text(`Score: ${score}`, 5, 550);
+  if (score % 12 == 0) {
+    text(`Congrats you've reached Level: ${score / 12 + 1}`, 5, 600);
   }
-  textAlign(CENTER); 
+  textAlign(CENTER);
 }
 
 function mousePressed() {
@@ -91,7 +91,7 @@ class Tile {
   //tile movement
   move() {
     this.y += this.velocity;
-    this.velocity = (score % 12) + 0.5;
+    this.velocity = ((score % 12) + score / 12 + 1) / 2;
   }
 
   belowcanvas() {
