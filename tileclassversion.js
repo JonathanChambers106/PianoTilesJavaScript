@@ -2,14 +2,17 @@
 /* global
  *  createCanvas, color, hit, textAlign, CENTER, collidePointRect, colorMode, strokeWeight,
  * stroke, fill, HSB, noFill, WIDTH, HEIGHT, background, ellipse, rect, time, i, noLoop,
- * textSize, text, width, height, tiles, newRow, random, mouseY, mouseX, loop, createButton, loaded, loadSound, createSlider, LEFT
+ * textSize, loadImage, text, width, height, tiles, newRow, random, mouseY, mouseX, loop, createButton, loaded, loadSound, createSlider, LEFT
  */
 
-let rectiles, button, score, song, slider, frameNumber;
+let rectiles, button, score, song, slider, frameNumber, backgroundImage;
 
 function setup() {
   createCanvas(400, 700);
   colorMode(HSB, 360, 100, 100);
+    backgroundImage = loadImage(
+      "https://cdn.glitch.com/c70bf76c-483f-4d41-8fbe-0bde4c8749a4%2F797185.png?v=1628118251470"
+      );
   song = loadSound(
     "https://cdn.glitch.com/c70bf76c-483f-4d41-8fbe-0bde4c8749a4%2Fpeaches.mp3?v=1628104909186",
     loaded
@@ -39,7 +42,7 @@ function loaded() {
 }
 
 function draw() {
-  background(70);
+  background(backgroundImage);
   song.setVolume(slider.value());
   rectanglecontrol();
   displayScore();
@@ -50,7 +53,7 @@ function frame() {
     frameNumber++;
   } else {
     this.hue = random(0, 360);
-    fill(this.hue, 100, 1);
+    fill(this.hue, 200, 100);
     frameNumber = 0;
   }
 }
