@@ -5,7 +5,7 @@
  * textSize, text, width, height, tiles, newRow, random, mouseY, mouseX, loop, createButton, loaded, loadSound, createSlider, LEFT
  */
 
-let rectiles, button, score, song, slider;
+let rectiles, button, score, song, slider, frameNumber;
 
 function setup() {
   createCanvas(400, 700);
@@ -91,7 +91,7 @@ function rectanglecontrol() {
 
 //tiles
 class Tile {
-  constructor(width, height, x, y, velocity) {
+  constructor(width, height, x, y, velocity,) {
     this.width = width;
     this.height = height;
     this.x = x;
@@ -117,7 +117,9 @@ class Tile {
   }
 
   drawrectangle() {
-    fill(this.color, 
+    //this.hue = random(0, 360);
+    //fill(this.hue, 50, 100);
+    frame();
     rect(this.x, this.y, this.width, this.height);
   }
 }
@@ -136,10 +138,24 @@ function resetGame() {
   ];
 }
 
+function frame(){
+  if( frameNumber < 100) {
+frameNumber ++;
+} 
+  else {
+  fill(Math.random() *10, Math.random() *10, Math.random()*10);
+    frameNumber = 0;
+}  
+  
+}
+
+
+
+
 //end screen fuction
 function gameOver() {
   noLoop();
-  fill(255, 204, 100);
+  fill('red');
   textSize(48);
   text("GAME OVER", width / 2, height / 2);
   textSize(14);
@@ -147,3 +163,5 @@ function gameOver() {
 }
 
 // Themes for background image: Space, Funny face, dollar bill,
+//change music in each level
+//change background in each level
