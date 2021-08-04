@@ -2,7 +2,7 @@
 /* global
  *  createCanvas, color, hit, textAlign, CENTER, collidePointRect, colorMode, strokeWeight,
  * stroke, fill, HSB, noFill, WIDTH, HEIGHT, background, ellipse, rect, time, i, noLoop,
- * textSize, text, width, height, tiles, newRow, random, mouseY, mouseX, loop, createButton, loaded, loadSound, createSlider
+ * textSize, text, width, height, tiles, newRow, random, mouseY, mouseX, loop, createButton, loaded, loadSound, createSlider, LEFT
  */
 
 let rectiles, button, score, song, slider;
@@ -10,7 +10,10 @@ let rectiles, button, score, song, slider;
 function setup() {
   createCanvas(400, 700);
   colorMode(HSB, 360, 100, 100);
-  song = loadSound("https://cdn.glitch.com/c70bf76c-483f-4d41-8fbe-0bde4c8749a4%2Fpeaches.mp3?v=1628104909186", loaded);
+  song = loadSound(
+    "https://cdn.glitch.com/c70bf76c-483f-4d41-8fbe-0bde4c8749a4%2Fpeaches.mp3?v=1628104909186",
+    loaded
+  );
   slider = createSlider(0, 1, 0.5, 0.01);
   score = 0;
   rectiles = [
@@ -18,12 +21,11 @@ function setup() {
      *make tiles smaller
      */
     new Tile(90, 150, 50, -300, 1),
-    new Tile(90, 150, 250, 200, 1)
+    new Tile(90, 150, 250, 200, 1),
     // new Tile(90, 100, 300, -150, 2),
     //   new Tile(90, 100, 150, 0, 2)
-    // If we add double xp score tile, use push to move new tile and then pop to remove it. 
-    // Add another parameter to the constructor to change the value of each tile (Stretch). 
-    
+    // If we add double xp score tile, use push to move new tile and then pop to remove it.
+    // Add another parameter to the constructor to change the value of each tile (Stretch).
   ];
 
   textAlign(CENTER);
@@ -32,7 +34,7 @@ function setup() {
   button.mousePressed(resetGame);
 }
 
-function loaded(){
+function loaded() {
   song.play();
 }
 
@@ -115,7 +117,7 @@ class Tile {
   }
 
   drawrectangle() {
-    fill(0, 0, 0);
+    fill(this.color, 
     rect(this.x, this.y, this.width, this.height);
   }
 }
@@ -140,9 +142,8 @@ function gameOver() {
   fill(255, 204, 100);
   textSize(48);
   text("GAME OVER", width / 2, height / 2);
-  textSize(12);
-  text("Press 'Reset Game' Button to Restart", width / 4, height / 4);
+  textSize(14);
+  text("Press 'Reset Game' Button to Restart", width / 2, 370);
 }
 
-
-// Themes for background image: Space, Funny face, dollar bill, 
+// Themes for background image: Space, Funny face, dollar bill,
