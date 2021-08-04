@@ -37,8 +37,13 @@ function draw() {
 function displayScore() {
   //Display Score
   fill(50, 100, 100);
+  
   textSize(15);
   text(`Score: ${score}`, 35, 550);
+  if (score % 12 == 0){
+    text(`Congrats you've reached Level: ${score /12 + 1}`,35, 600)
+  }
+  textAlign(CENTER); 
 }
 
 function mousePressed() {
@@ -62,10 +67,14 @@ function mousePressed() {
 }
 
 function rectanglecontrol() {
-  for (let drawrectangle = 0; drawrectangle < rectiles.length; drawrectangle++) {
+  for (
+    let drawrectangle = 0;
+    drawrectangle < rectiles.length;
+    drawrectangle++
+  ) {
     rectiles[drawrectangle].drawrectangle();
     rectiles[drawrectangle].move(Tile);
-    rectiles[drawrectangle].belowcanvas()
+    rectiles[drawrectangle].belowcanvas();
   }
 }
 
@@ -82,18 +91,13 @@ class Tile {
   //tile movement
   move() {
     this.y += this.velocity;
-    if (this.y > height) {
-      this.y = -this.height;
-    }
-     this.velocity = (score % 12) + 0.5;
+    this.velocity = (score % 12) + 0.5;
   }
 
   belowcanvas() {
     if (this.y > height) {
       gameOver();
     }
-    
-    
   }
 
   hit() {
@@ -110,7 +114,7 @@ class Tile {
 function resetGame() {
   score = 0;
   loop();
-   rectiles = [
+  rectiles = [
     /*to do: change x's value to random position
      *make tiles smaller
      */
@@ -119,7 +123,6 @@ function resetGame() {
     // new Tile(90, 100, 300, -150, 2),
     //   new Tile(90, 100, 150, 0, 2)
   ];
-  
 }
 
 //end screen fuction
