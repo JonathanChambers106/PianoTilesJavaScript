@@ -33,7 +33,7 @@ function setup() {
 }
 
 function loaded(){
-  song.play();
+  //song.play();
 }
 
 function draw() {
@@ -143,3 +143,6 @@ function gameOver() {
   textSize(12);
   text("Press 'Reset Game' Button to Restart", width / 4, height / 4);
 }
+
+
+// Themes for background image: Space, Funny face, dollar bill, 
