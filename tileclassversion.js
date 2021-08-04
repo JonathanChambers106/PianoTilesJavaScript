@@ -18,8 +18,8 @@ function setup() {
      */
     new Tile(90, 150, 50, -300, 2),
     new Tile(90, 150, 250, 200, 2)
-   // new Tile(90, 100, 300, -150, 2),
- //   new Tile(90, 100, 150, 0, 2)
+    // new Tile(90, 100, 300, -150, 2),
+    //   new Tile(90, 100, 150, 0, 2)
   ];
 
   textAlign(CENTER);
