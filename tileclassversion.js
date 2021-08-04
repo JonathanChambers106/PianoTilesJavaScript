@@ -58,6 +58,10 @@ function mousePressed() {
       tile.hit();
       console.log("tile", tile);
     }
+    else if(below){
+      gameOver();
+    }
+    
   }
 }
 
@@ -94,6 +98,10 @@ class Tile {
     this.y = -this.height;
     score++;
   }
+  
+  belowcanvas(){
+    this.y > height;
+  }
 
   drawrectangle() {
     fill(0, 0, 0);
@@ -103,12 +111,6 @@ class Tile {
 // reset button
 function resetGame() {
   score = 0;
-  rectiles[
-    (new Tile(90, 300, 50, 50, 1),
-    new Tile(90, 300, 250, 10, 1),
-    new Tile(90, 200, 300, 350, 1),
-    new Tile(90, 200, 150, 450, 1))
-  ];
   //  noLoop();
 }
 
