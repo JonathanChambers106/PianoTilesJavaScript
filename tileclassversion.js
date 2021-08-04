@@ -65,6 +65,7 @@ function rectanglecontrol() {
   for (let drawrectangle = 0; drawrectangle < rectiles.length; drawrectangle++) {
     rectiles[drawrectangle].drawrectangle();
     rectiles[drawrectangle].move(Tile);
+    rectiles[drawrectangle].belowcanvas()
   }
 }
 
@@ -84,6 +85,7 @@ class Tile {
     if (this.y > height) {
       this.y = -this.height;
     }
+     this.velocity = (score % 12) + 0.5;
   }
 
   belowcanvas() {
@@ -107,7 +109,17 @@ class Tile {
 // reset button
 function resetGame() {
   score = 0;
-  //  noLoop();
+  loop();
+   rectiles = [
+    /*to do: change x's value to random position
+     *make tiles smaller
+     */
+    new Tile(90, 150, 50, -300, 4),
+    new Tile(90, 150, 250, 200, 2)
+    // new Tile(90, 100, 300, -150, 2),
+    //   new Tile(90, 100, 150, 0, 2)
+  ];
+  
 }
 
 //end screen fuction
