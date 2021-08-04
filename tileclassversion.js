@@ -16,7 +16,7 @@ function setup() {
     /*to do: change x's value to random position
      *make tiles smaller
      */
-    new Tile(90, 150, 50, -300, 2),
+    new Tile(90, 150, 50, -300, 4),
     new Tile(90, 150, 250, 200, 2)
     // new Tile(90, 100, 300, -150, 2),
     //   new Tile(90, 100, 150, 0, 2)
