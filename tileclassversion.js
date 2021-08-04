@@ -21,7 +21,7 @@ function setup() {
      *make tiles smaller
      */
     new Tile(90, 150, 50, -300, 1),
-    new Tile(90, 150, 250, 200, 1),
+    new Tile(90, 150, 250, 200, 1)
     // new Tile(90, 100, 300, -150, 2),
     //   new Tile(90, 100, 150, 0, 2)
     // If we add double xp score tile, use push to move new tile and then pop to remove it.
@@ -41,15 +41,25 @@ function loaded() {
 function draw() {
   background(70);
   song.setVolume(slider.value());
-  displayScore();
   rectanglecontrol();
+  displayScore();
+}
+
+function frame() {
+  if (frameNumber < 100) {
+    frameNumber++;
+  } else {
+    this.hue = random(0, 360);
+    fill(this.hue, 100, 1);
+    frameNumber = 0;
+  }
 }
 
 function displayScore() {
   //Display Score
-  fill(50, 100, 100);
   textAlign(LEFT);
   textSize(15);
+  // fill(55, 200, 100)
   text(`Score: ${score}`, 5, 550);
   if (score % 12 == 0) {
     text(`Congrats you've reached Level: ${score / 12 + 1}`, 5, 600);
@@ -91,7 +101,7 @@ function rectanglecontrol() {
 
 //tiles
 class Tile {
-  constructor(width, height, x, y, velocity,) {
+  constructor(width, height, x, y, velocity) {
     this.width = width;
     this.height = height;
     this.x = x;
@@ -117,8 +127,6 @@ class Tile {
   }
 
   drawrectangle() {
-    //this.hue = random(0, 360);
-    //fill(this.hue, 50, 100);
     frame();
     rect(this.x, this.y, this.width, this.height);
   }
@@ -138,24 +146,12 @@ function resetGame() {
   ];
 }
 
-function frame(){
-  if( frameNumber < 100) {
-frameNumber ++;
-} 
-  else {
-  fill(Math.random() *10, Math.random() *10, Math.random()*10);
-    frameNumber = 0;
-}  
-  
-}
-
-
 
 
 //end screen fuction
 function gameOver() {
   noLoop();
-  fill('red');
+  fill("red");
   textSize(48);
   text("GAME OVER", width / 2, height / 2);
   textSize(14);
