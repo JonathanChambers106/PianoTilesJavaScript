@@ -4,19 +4,19 @@
  * stroke, fill, HSB, noFill, WIDTH, HEIGHT, background, ellipse, rect, time, i, noLoop,
  * textSize, loadImage, text, width, height, clear, tiles, newRow, random, mouseY, mouseX, loop, createButton, loaded, loadSound, createSlider, LEFT
  * keyCode, keyPressed, ENTER
-*/
+ */
 
 /*Stretch Work
-* Themes for background image: Space, Funny face, dollar bill,
-*change music in each level
-*change background in each level
-*add start screen
-*reset button appears only at the end?
-*pause and play button
-*change x's value to random position
-*If we add double xp score tile, use push to move new tile and then pop to remove it.
-*Add another parameter to the constructor to change the value of each tile (Stretch).
-*/
+ * Themes for background image: Space, Funny face, dollar bill,
+ *change music in each level
+ *change background in each level
+ *add start screen
+ *reset button appears only at the end?
+ *pause and play button
+ *change x's value to random position
+ *If we add double xp score tile, use push to move new tile and then pop to remove it.
+ *Add another parameter to the constructor to change the value of each tile (Stretch).
+ */
 
 let rectiles,
   button,
@@ -51,18 +51,19 @@ function setup() {
     // new Tile(90, 100, 300, -150, 2),
     //   new Tile(90, 100, 150, 0, 2)
   ];
-
-    //Hit button to play song
-    button = createButton("Play Song");
-    button.position(330, 10);
-    button.mousePressed(togglePlaying);
-
 }
 
 function loaded() {
   console.log("loaded");
 }
-
+function buttons(){
+  button = createButton("Play Song");
+  button.position(330, 10);
+  button.mousePressed(togglePlaying);
+  button = createButton("Reset Game");
+  button.position(10, 10);
+  button.mousePressed(resetGame);
+}
 function togglePlaying() {
   if (!song.isPlaying()) {
     song.play();
@@ -93,9 +94,7 @@ function draw() {
     rectanglecontrol();
     displayScore();
     textAlign(CENTER);
-    button = createButton("Reset Game");
-    button.position(10, 10);
-    button.mousePressed(resetGame);
+    buttons();
   }
 }
 
@@ -109,8 +108,8 @@ function displayScore() {
   //Display Score
   textAlign(LEFT);
   textSize(15);
-  fill(55, 200, 100);
-  text(`Score: ${score}`, 90, 10);
+  fill(255);
+  text(`Score: ${score}`, 170, 25);
   if (score % 12 == 0) {
     text(`Congrats you've reached Level: ${score / 12 + 1}`, 90, 50);
   }
