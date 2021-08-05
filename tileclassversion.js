@@ -46,8 +46,8 @@ function setup() {
   slider = createSlider(0, 1, 0.5, 0.01);
   score = 0;
   rectiles = [
-    new Tile(90, 150, 50, -300, 2),
-    new Tile(90, 150, 250, 200, 2)
+    new Tile(90, 150, 50, -300, 2, 1),
+    new Tile(90, 150, 250, 200, 2, 1)
     // new Tile(90, 100, 300, -150, 2),
     //   new Tile(90, 100, 150, 0, 2)
   ];
@@ -58,7 +58,7 @@ function loaded() {
 }
 function buttons(){
   button = createButton("Song");
-  button.position(330, 10);
+  button.position(350, 10);
   button.mousePressed(togglePlaying);
   button = createButton("Reset Game");
   button.position(10, 10);
@@ -68,11 +68,11 @@ function togglePlaying() {
   if (!song.isPlaying()) {
     song.play();
     song.setVolume(0.8);
-    button.position(330, 10);
-    button.html("Stop Song");
+    button.position(350, 10);
+    button.html("Song");
   } else {
     song.pause();
-    button.position(330, -100);
+    button.position(350, -100);
     button.html("Song");
   }
 }
@@ -152,12 +152,13 @@ function rectanglecontrol() {
 
 //tiles
 class Tile {
-  constructor(width, height, x, y, velocity) {
+  constructor(width, height, x, y, velocity, points) {
     this.width = width;
     this.height = height;
     this.x = x;
     this.y = y;
     this.velocity = velocity;
+    this.points = points
   }
 
   //tile movement
@@ -165,6 +166,7 @@ class Tile {
     this.y += this.velocity;
     this.velocity = ((score % 12) + score / 12 + 3) / 2;
   }
+  
 
   belowcanvas() {
     if (this.y > height) {
@@ -173,7 +175,7 @@ class Tile {
   }
 
   frame() {
-    if (frameNumber < 100) {
+    if (frameNumber < 50) {
       frameNumber++;
     } else {
       this.hue = random(0, 360);
@@ -184,7 +186,7 @@ class Tile {
 
   hit() {
     this.y = -this.height;
-    score++;
+    score += 1;
   }
 
   drawrectangle() {
@@ -214,3 +216,4 @@ function gameOver() {
   textSize(14);
   text("Press 'Reset Game' Button to Restart", width / 2, 370);
 }
+
