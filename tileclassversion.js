@@ -76,21 +76,11 @@ function draw() {
   displayScore();
 }
 
-function frame() {
-  if (frameNumber < 100) {
-    frameNumber++;
-  } else {
-    this.hue = random(0, 360);
-    fill(this.hue, 200, 100);
-    frameNumber = 0;
-  }
-}
-
 function displayScore() {
   //Display Score
   textAlign(LEFT);
   textSize(15);
-  // fill(55, 200, 100)
+  fill(55, 200, 100)
   text(`Score: ${score}`, 5, 550);
   if (score % 12 == 0) {
     text(`Congrats you've reached Level: ${score / 12 + 1}`, 5, 600);
@@ -152,13 +142,23 @@ class Tile {
     }
   }
 
+  frame() {
+  if (frameNumber < 100) {
+    frameNumber++;
+  } else {
+    this.hue = random(0, 360);
+    fill(this.hue, 200, 100);
+    frameNumber = 0;
+  }
+}
+  
   hit() {
     this.y = -this.height;
     score++;
   }
 
   drawrectangle() {
-    frame();
+    this.frame();
     rect(this.x, this.y, this.width, this.height);
   }
 }
