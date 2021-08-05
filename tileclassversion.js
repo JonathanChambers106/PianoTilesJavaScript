@@ -34,7 +34,7 @@ function setup() {
   button.position(13, 35);
   button.mousePressed(resetGame);
   
-  
+  //Hit button to play song
  button = createButton("Play Song");
   button.position(11, 120);
   button.mousePressed(togglePlaying);
@@ -49,7 +49,7 @@ function togglePlaying(){
   if (!song.isPlaying()){
     song.play();
     song.setVolume(0.8);
-    button.html("Pause Song");
+    button.html("Stop Song");
   } else{
     song.pause();
     button.html("Play Song");
