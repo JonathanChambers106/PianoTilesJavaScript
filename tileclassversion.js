@@ -45,6 +45,7 @@ function setup() {
   );
   slider = createSlider(0, 1, 0.5, 0.01);
   score = 0;
+  level = 0;
   rectiles = [
     new Tile(90, 150, 50, -300, 2, 1),
     new Tile(90, 150, 250, 200, 2, 1)
@@ -135,6 +136,10 @@ function mousePressed() {
       tile.hit();
       console.log("tile", tile);
     }
+    
+    hit = collidePointRect(mouseX, mou)
+    
+    
   }
 }
 
@@ -182,6 +187,7 @@ class Tile {
       fill(this.hue, 200, 100);
       frameNumber = 0;
     }
+    
   }
 
   hit() {
@@ -216,4 +222,5 @@ function gameOver() {
   textSize(14);
   text("Press 'Reset Game' Button to Restart", width / 2, 370);
 }
+
 
