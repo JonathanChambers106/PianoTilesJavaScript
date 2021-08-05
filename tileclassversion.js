@@ -133,9 +133,9 @@ function mousePressed() {
       touchedtile.hit();
       console.log("tile", touchedtile);
     }
-    else {
+/*    else {
       gameOver();
-  }
+  }*/
 }
 }
 function rectanglecontrol() {
