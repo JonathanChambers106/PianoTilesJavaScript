@@ -16,7 +16,6 @@
 *change x's value to random position
 *If we add double xp score tile, use push to move new tile and then pop to remove it.
 *Add another parameter to the constructor to change the value of each tile (Stretch).
-
 */
 
 let rectiles,
@@ -52,6 +51,11 @@ function setup() {
     // new Tile(90, 100, 300, -150, 2),
     //   new Tile(90, 100, 150, 0, 2)
   ];
+
+    //Hit button to play song
+    button = createButton("Play Song");
+    button.position(330, 10);
+    button.mousePressed(togglePlaying);
 
 }
 
@@ -90,13 +94,8 @@ function draw() {
     displayScore();
     textAlign(CENTER);
     button = createButton("Reset Game");
-    button.position(13, 35);
+    button.position(10, 10);
     button.mousePressed(resetGame);
-
-    //Hit button to play song
-    button = createButton("Play Song");
-    button.position(11, 120);
-    button.mousePressed(togglePlaying);
   }
 }
 
@@ -111,9 +110,9 @@ function displayScore() {
   textAlign(LEFT);
   textSize(15);
   fill(55, 200, 100);
-  text(`Score: ${score}`, 5, 550);
+  text(`Score: ${score}`, 90, 10);
   if (score % 12 == 0) {
-    text(`Congrats you've reached Level: ${score / 12 + 1}`, 5, 600);
+    text(`Congrats you've reached Level: ${score / 12 + 1}`, 90, 50);
   }
   textAlign(CENTER);
 }
