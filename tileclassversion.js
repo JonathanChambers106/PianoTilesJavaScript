@@ -5,6 +5,21 @@
  * textSize, loadImage, text, width, height, tiles, newRow, random, mouseY, mouseX, loop, createButton, loaded, loadSound, createSlider, LEFT
  */
 
+
+
+/*Stretch Work
+* Themes for background image: Space, Funny face, dollar bill,
+*change music in each level
+*change background in each level
+*add start screen
+*reset button appears only at the end?
+*pause and play button
+*change x's value to random position
+*If we add double xp score tile, use push to move new tile and then pop to remove it.
+*Add another parameter to the constructor to change the value of each tile (Stretch).
+
+*/
+
 let rectiles, button, score, song, slider, frameNumber, backgroundImage;
 
 function setup() {
@@ -25,8 +40,6 @@ function setup() {
     new Tile(90, 150, 250, 200, 1)
     // new Tile(90, 100, 300, -150, 2),
     //   new Tile(90, 100, 150, 0, 2)
-    // If we add double xp score tile, use push to move new tile and then pop to remove it.
-    // Add another parameter to the constructor to change the value of each tile (Stretch).
   ];
 
   textAlign(CENTER);
@@ -172,14 +185,3 @@ function gameOver() {
   textSize(14);
   text("Press 'Reset Game' Button to Restart", width / 2, 370);
 }
-
-
-/*Stretch Work
-* Themes for background image: Space, Funny face, dollar bill,
-*change music in each level
-*change background in each level
-*add start screen
-*reset button appears only at the end?
-*pause and play button
-*change x's value to random position
-*/
