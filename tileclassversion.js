@@ -2,7 +2,7 @@
 /* global
  *  createCanvas, color, hit, textAlign, CENTER, collidePointRect, colorMode, strokeWeight,
  * stroke, fill, HSB, noFill, WIDTH, HEIGHT, background, ellipse, rect, time, i, noLoop,
- * textSize, loadImage, text, width, height, tiles, newRow, random, mouseY, mouseX, loop, createButton, loaded, loadSound, createSlider, LEFT
+ * textSize, loadImage, text, width, height, clear, tiles, newRow, random, mouseY, mouseX, loop, createButton, loaded, loadSound, createSlider, LEFT
  */
 
 
@@ -22,7 +22,10 @@
 
 let rectiles, button, score, song, slider, frameNumber, backgroundImage;
 
+
+var mode;
 function setup() {
+  mode = 0;
   createCanvas(400, 700);
   colorMode(HSB, 360, 100, 100);
     backgroundImage = loadImage(
@@ -70,10 +73,18 @@ function togglePlaying(){
 }
 
 function draw() {
+  clear();
+  if (mode==0){
+    fill("red");
+  textSize(30);
+    text('Press space to start', width / 2, height / 2)
+  }
+  if (mode==1){
   background(backgroundImage);
   song.setVolume(slider.value())
   rectanglecontrol();
   displayScore();
+  }
 }
 
 function displayScore() {
@@ -159,6 +170,7 @@ class Tile {
 
   drawrectangle() {
     this.frame();
+    fill(this.hue, 200, 100);
     rect(this.x, this.y, this.width, this.height);
   }
 }
