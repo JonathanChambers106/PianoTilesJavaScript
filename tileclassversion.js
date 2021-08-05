@@ -25,7 +25,6 @@ let rectiles,
   slider,
   frameNumber,
   backgroundImage,
-  hit2,
   backgroundImage2;
 
 var mode;
@@ -120,18 +119,11 @@ function displayScore() {
 }
 
 function mousePressed() {
+  if(mode == 1){
   for (let i = 0; i < rectiles.length; i++) {
     let tile = rectiles[i];
     console.log("rectiles");
-    hit = collidePointRect(
-      mouseX,
-      mouseY,
-      tile.x,
-      tile.y,
-      tile.width,
-      tile.height
-    );
-
+    hit = collidePointRect(mouseX, mouseY, tile.x, tile.y, tile.width, tile.height);
     if (hit) {
       tile.hit();
       console.log("tile", tile);
@@ -141,7 +133,7 @@ function mousePressed() {
   }
   }
 }
-
+}
 function rectanglecontrol() {
   for (
     let drawrectangle = 0;
