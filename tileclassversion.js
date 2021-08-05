@@ -20,7 +20,7 @@
 
 */
 
-let rectiles, button, score, song, slider, frameNumber, backgroundImage;
+let rectiles, button, score, song, slider, frameNumber, backgroundImage, backgroundImage2;
 
 
 var mode;
@@ -31,6 +31,9 @@ function setup() {
     backgroundImage = loadImage(
       "https://cdn.glitch.com/c70bf76c-483f-4d41-8fbe-0bde4c8749a4%2F797185.png?v=1628118251470"
       );
+    backgroundImage2 = loadImage(
+    "https://cdn.glitch.com/c70bf76c-483f-4d41-8fbe-0bde4c8749a4%2Fwp5679196.jpeg?v=1628186061490"
+    )
   
   song = loadSound(
     "https://cdn.glitch.com/c70bf76c-483f-4d41-8fbe-0bde4c8749a4%2Fpeaches.mp3?v=1628104909186",
@@ -44,7 +47,7 @@ function setup() {
     // new Tile(90, 100, 300, -150, 2),
     //   new Tile(90, 100, 150, 0, 2)
   ];
-
+if (mode==1){
   textAlign(CENTER);
   button = createButton("Reset Game");
   button.position(13, 35);
@@ -54,6 +57,7 @@ function setup() {
  button = createButton("Play Song");
   button.position(11, 120);
   button.mousePressed(togglePlaying);
+}
   
 }
 
@@ -75,9 +79,18 @@ function togglePlaying(){
 function draw() {
   clear();
   if (mode==0){
-    fill("red");
-  textSize(30);
-    text('Press space to start', width / 2, height / 2)
+    background(backgroundImage2);
+  fill('rgb(0,255,0)');
+    textSize(50);
+    text('Crazy Tiles', 90, 100);
+    textSize(15);
+    text('by The 8-Ballers', 100, 130)
+    textSize(10);
+    text('Press "Space" key to start', 120, 600)
+
+  
+  
+  
   }
   if (mode==1){
   background(backgroundImage);
