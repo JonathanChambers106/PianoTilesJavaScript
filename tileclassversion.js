@@ -21,9 +21,6 @@ function setup() {
  slider = createSlider(0, 1, 0.5, 0.01);
   score = 0;
   rectiles = [
-    /*to do: change x's value to random position
-     *make tiles smaller
-     */
     new Tile(90, 150, 50, -300, 1),
     new Tile(90, 150, 250, 200, 1)
     // new Tile(90, 100, 300, -150, 2),
@@ -157,9 +154,6 @@ function resetGame() {
   score = 0;
   loop();
   rectiles = [
-    /*to do: change x's value to random position
-     *make tiles smaller
-     */
     new Tile(90, 150, 50, -300, 4),
     new Tile(90, 150, 250, 200, 2)
     // new Tile(90, 100, 300, -150, 2),
@@ -179,6 +173,13 @@ function gameOver() {
   text("Press 'Reset Game' Button to Restart", width / 2, 370);
 }
 
-// Themes for background image: Space, Funny face, dollar bill,
-//change music in each level
-//change background in each level
+
+/*Stretch Work
+* Themes for background image: Space, Funny face, dollar bill,
+*change music in each level
+*change background in each level
+*add start screen
+*reset button appears only at the end?
+*pause and play button
+*change x's value to random position
+*/
