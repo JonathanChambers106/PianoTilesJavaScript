@@ -120,17 +120,21 @@ function displayScore() {
 
 function mousePressed() {
   if(mode == 1){
+  let touchedtile = null;
   for (let i = 0; i < rectiles.length; i++) {
     let tile = rectiles[i];
     console.log("rectiles");
     hit = collidePointRect(mouseX, mouseY, tile.x, tile.y, tile.width, tile.height);
-    if (hit) {
-      tile.hit();
-      console.log("tile", tile);
+    if(hit){
+      touchedtile = tile;
+    }
+  }
+     if (touchedtile != null) {
+      touchedtile.hit();
+      console.log("tile", touchedtile);
     }
     else {
       gameOver();
-  }
   }
 }
 }
