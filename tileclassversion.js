@@ -46,8 +46,8 @@ function setup() {
   slider = createSlider(0, 1, 0.5, 0.01);
   score = 0;
   rectiles = [
-    new Tile(90, 150, 50, -300, 1),
-    new Tile(90, 150, 250, 200, 1)
+    new Tile(90, 150, 50, -300, 2),
+    new Tile(90, 150, 250, 200, 2)
     // new Tile(90, 100, 300, -150, 2),
     //   new Tile(90, 100, 150, 0, 2)
   ];
@@ -57,7 +57,7 @@ function loaded() {
   console.log("loaded");
 }
 function buttons(){
-  button = createButton("Play Song");
+  button = createButton("Song");
   button.position(330, 10);
   button.mousePressed(togglePlaying);
   button = createButton("Reset Game");
@@ -68,10 +68,12 @@ function togglePlaying() {
   if (!song.isPlaying()) {
     song.play();
     song.setVolume(0.8);
+    button.position(330, 10);
     button.html("Stop Song");
   } else {
     song.pause();
-    button.html("Play Song");
+    button.position(330, -100);
+    button.html("Song");
   }
 }
 
@@ -161,7 +163,7 @@ class Tile {
   //tile movement
   move() {
     this.y += this.velocity;
-    this.velocity = ((score % 12) + score / 12 + 1) / 2;
+    this.velocity = ((score % 12) + score / 12 + 3) / 2;
   }
 
   belowcanvas() {
