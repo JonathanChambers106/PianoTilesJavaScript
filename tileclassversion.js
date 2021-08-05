@@ -13,6 +13,7 @@ function setup() {
     backgroundImage = loadImage(
       "https://cdn.glitch.com/c70bf76c-483f-4d41-8fbe-0bde4c8749a4%2F797185.png?v=1628118251470"
       );
+  
   song = loadSound(
     "https://cdn.glitch.com/c70bf76c-483f-4d41-8fbe-0bde4c8749a4%2Fpeaches.mp3?v=1628104909186",
     loaded
