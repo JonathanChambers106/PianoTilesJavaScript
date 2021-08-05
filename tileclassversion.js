@@ -18,7 +18,7 @@ function setup() {
     "https://cdn.glitch.com/c70bf76c-483f-4d41-8fbe-0bde4c8749a4%2Fpeaches.mp3?v=1628104909186",
     loaded
   );
-  slider = createSlider(0, 1, 0.5, 0.01);
+ slider = createSlider(0, 1, 0.5, 0.01);
   score = 0;
   rectiles = [
     /*to do: change x's value to random position
@@ -36,15 +36,32 @@ function setup() {
   button = createButton("Reset Game");
   button.position(13, 35);
   button.mousePressed(resetGame);
+  
+  
+ button = createButton("Play Song");
+  button.position(11, 120);
+  button.mousePressed(togglePlaying);
+  
 }
 
 function loaded() {
-  song.play();
+ console.log("loaded");
+}
+
+function togglePlaying(){
+  if (!song.isPlaying()){
+    song.play();
+    song.setVolume(0.8);
+    button.html("Pause Song");
+  } else{
+    song.pause();
+    button.html("Play Song");
+  }
 }
 
 function draw() {
   background(backgroundImage);
-  song.setVolume(slider.value());
+  song.setVolume(slider.value())
   rectanglecontrol();
   displayScore();
 }
