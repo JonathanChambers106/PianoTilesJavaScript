@@ -47,7 +47,7 @@ function setup() {
   score = 0;
   rectiles = [
     new Tile(90, 150, 50, -300, 2, 1),
-    new Tile(90, 150, 250, 200, 2, 1)
+    new Tile(90, 150, 250, 200, 2, 1),
     // new Tile(90, 100, 300, -150, 2),
     //   new Tile(90, 100, 150, 0, 2)
   ];
@@ -56,7 +56,7 @@ function setup() {
 function loaded() {
   console.log("loaded");
 }
-function buttons(){
+function buttons() {
   button = createButton("Song");
   button.position(350, 10);
   button.mousePressed(togglePlaying);
@@ -119,24 +119,31 @@ function displayScore() {
 }
 
 function mousePressed() {
-  if(mode == 1){
-  let touchedtile = null;
-  for (let i = 0; i < rectiles.length; i++) {
-    let tile = rectiles[i];
-    console.log("rectiles");
-    hit = collidePointRect(mouseX, mouseY, tile.x, tile.y, tile.width, tile.height);
-    if(hit){
-      touchedtile = tile;
+  if (mode == 1) {
+    let touchedtile = null;
+    for (let i = 0; i < rectiles.length; i++) {
+      let tile = rectiles[i];
+      console.log("rectiles");
+      hit = collidePointRect(
+        mouseX,
+        mouseY,
+        tile.x,
+        tile.y,
+        tile.width,
+        tile.height
+      );
+      if (hit) {
+        touchedtile = tile;
+      }
     }
-  }
-     if (touchedtile != null) {
+    if (touchedtile != null) {
       touchedtile.hit();
       console.log("tile", touchedtile);
     }
-/*    else {
+    /*    else {
       gameOver();
   }*/
-}
+  }
 }
 function rectanglecontrol() {
   for (
@@ -158,7 +165,7 @@ class Tile {
     this.x = x;
     this.y = y;
     this.velocity = velocity;
-    this.points = points
+    this.points = points;
   }
 
   //tile movement
@@ -166,7 +173,6 @@ class Tile {
     this.y += this.velocity;
     this.velocity = ((score % 12) + score / 12 + 3) / 2;
   }
-  
 
   belowcanvas() {
     if (this.y > height) {
@@ -182,7 +188,6 @@ class Tile {
       fill(this.hue, 200, 100);
       frameNumber = 0;
     }
-    
   }
 
   hit() {
@@ -202,7 +207,7 @@ function resetGame() {
   loop();
   rectiles = [
     new Tile(90, 150, 50, -300, 4),
-    new Tile(90, 150, 250, 200, 2)
+    new Tile(90, 150, 250, 200, 2),
     // new Tile(90, 100, 300, -150, 2),
     //   new Tile(90, 100, 150, 0, 2)
   ];
@@ -217,4 +222,3 @@ function gameOver() {
   textSize(14);
   text("Press 'Reset Game' Button to Restart", width / 2, 370);
 }
-
